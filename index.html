@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTITUCIÓN EDUCATIVA TÉCNICA COMERCIAL TEOFILO ROBERTO POTES</title>
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ICOTERPO</div>
+        <ul class="nav-links">
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#nombre">Nombre</a></li>
+            <li><a href="#uniformes">Uniformes</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#video">Video</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <!-- SECCIONES -->
+    <section id="historia" class="reveal">
+        <h1>Cómo era el ICOTERPO hace 50 años</h1>
+        <p>
+            El Instituto Comercial Teófilo Roberto Potes nace como satélite del Liceo Femenino del Pacífico,
+            gracias a la iniciativa del doctor Eusebio Muñoz Perea, en ese entonces Secretario de Educación,
+            mediante decreto 0970 de Agosto 12 de 1975. El Teófilo Roberto Potes empezó sus labores en forma
+            rudimentaria en todos los aspectos, especialmente en la parte locativa, la cual se pudo sortear
+            gracias a la benevolencia de la escuela Luis Ablanque de la Plata y sobre todo del Seminario San
+            Buenaventura, entidades que con gran altruismo facilitaron sus aulas a la naciente Institución.
+        </p>
+    </section>
+
+    <section id="nombre" class="reveal">
+        <h1>¿Por qué recibió el nombre de Teófilo Roberto Potes?</h1>
+        <p>
+            En honor a su fundador, Teófilo Roberto Potes, un intelectual afrocolombiano, maestro,
+            y cultor de la tradición afropacífica, quien promovió la cultura y el folclor de la región.
+        </p>
+    </section>
+
+    <section id="uniformes" class="reveal">
+        <h1>Cómo era el plantel y su uniforme</h1>
+        <p>
+            En años atrás, la institución tenía uniformes diferentes. Lo que muchos estudiantes no sabían es que
+            el uniforme actual está inspirado en uno antiguo con algunas mejoras. El uniforme anterior tenía seis
+            bolsillos y, por eso, en aquella época se apodaba a los estudiantes "los roba pan".
+        </p>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="reveal">
+        <h1>Galería de Recuerdos</h1>
+        <div class="gallery">
+            <img src="Imagenes/Img1.png" alt="Foto antigua 1">
+            <img src="Imagenes/Img2.png" alt="Foto antigua 2">
+            <img src="Imagenes/ImgUniforme.png" alt="Foto antigua 3">
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="reveal">
+        <h1>Video Histórico</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/D7GOSrK1GOs?si=ZK6bT-kc58z0YwyW" 
+                title="YouTube video player" allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        TEÓFILO ROBERTO POTES - Página Creada Por Enyi Tatiana Y Deysi Tatiana - Año 2025 - Grado 11-7
+    </footer>
+
+    <!-- SCRIPT DEL MENÚ -->
+    <script>
+        const toggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        toggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Animación scroll reveal
+        window.addEventListener("scroll", () => {
+            document.querySelectorAll(".reveal").forEach((el) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

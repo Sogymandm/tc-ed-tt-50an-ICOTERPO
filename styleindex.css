@@ -1,0 +1,225 @@
+/* ========== RESET & BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #ffe6f0, #ffd6eb, #ffb3d9);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #ff4d88, #e60073);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+.logo {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: default;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #ffe6f0;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffe6f0;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Menú Responsive */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        background: #ff4d88;
+        position: fixed;       /* para que se acople mejor */
+        top: 70px;             /* justo debajo del navbar */
+        right: 0;
+        width: 220px;
+        padding: 1rem;
+        border-radius: 0 0 0 15px;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 500;          /* más bajo que la barra */
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;        /* asegura que el botón quede arriba */
+    }
+}
+
+/* ========== SECCIONES ========== */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+    animation: fadeInUp 1.2s ease both;
+}
+
+h1 {
+    color: #cc0066;
+    margin-bottom: 1rem;
+    font-size: 2.3rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.8;
+    transition: transform 0.3s ease;
+}
+
+p:hover {
+    transform: scale(1.02);
+}
+
+/* ========== GALERÍA ========== */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.gallery img:hover {
+    transform: scale(1.07) rotate(1deg);
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.25);
+}
+
+/* ========== VIDEO ========== */
+.video-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0px 4px 18px rgba(0,0,0,0.25);
+    transition: transform 0.4s ease;
+}
+
+.video-container iframe:hover {
+    transform: scale(1.02);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, #ff4d88, #cc0066);
+    color: white;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    box-shadow: 0px -2px 10px rgba(0,0,0,0.15);
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
